@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asisten Sebaya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Poppins', 'sans-serif'],
+            },
+            colors: {
+              'dark-bg': '#1e2025',
+              'dark-bg-secondary': '#24272c',
+              'orange-accent': '#f97316',
+              'orange-accent-hover': '#fb923c',
+            },
+            boxShadow: {
+              'neumorphic-out': '8px 8px 16px #1a1c20, -8px -8px 16px #22242a',
+              'neumorphic-in': 'inset 8px 8px 16px #1a1c20, inset -8px -8px 16px #22242a',
+              'neumorphic-out-sm': '4px 4px 8px #1a1c20, -4px -4px 8px #22242a',
+              'neumorphic-in-sm': 'inset 4px 4px 8px #1a1c20, inset -4px -4px 8px #22242a',
+            }
+          },
+        },
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.28.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.548.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-dark-bg">
+    <div id="root"></div>
+  </body>
+</html>
