@@ -21,8 +21,8 @@ const RegisterPage: React.FC<AuthPageProps> = ({ navigate }) => {
   return (
     <div className="min-h-screen bg-dark-bg flex items-center justify-center p-4 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-            <div className="absolute top-10 right-10 w-64 h-64 bg-orange-accent/10 rounded-full filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
-            <div className="absolute bottom-10 left-10 w-72 h-72 bg-orange-accent/20 rounded-full filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+            <div className="absolute top-10 right-10 w-64 h-64 bg-orange-accent/10 rounded-full filter blur-3xl opacity-50 animate-blob-soft animation-delay-2000"></div>
+            <div className="absolute bottom-10 left-10 w-72 h-72 bg-orange-accent/20 rounded-full filter blur-3xl opacity-30 animate-blob-soft animation-delay-4000"></div>
         </div>
         
         <div className="relative z-10 w-full max-w-md bg-dark-bg-secondary p-8 md:p-12 rounded-3xl shadow-neumorphic-out">
@@ -60,17 +60,6 @@ const RegisterPage: React.FC<AuthPageProps> = ({ navigate }) => {
                 </a>
             </div>
         </div>
-        <style jsx>{`
-            .animate-blob { animation: blob 8s infinite; }
-            .animation-delay-2000 { animation-delay: -2s; }
-            .animation-delay-4000 { animation-delay: -4s; }
-            @keyframes blob {
-                0% { transform: translate(0px, 0px) scale(1); }
-                33% { transform: translate(40px, -60px) scale(1.2); }
-                66% { transform: translate(-30px, 30px) scale(0.8); }
-                100% { transform: translate(0px, 0px) scale(1); }
-            }
-        `}</style>
     </div>
   );
 };

@@ -103,32 +103,6 @@ const TestimonialsSection: React.FC = () => {
 
     return (
         <section id="testimonials" className="py-20 bg-dark-bg">
-            <style jsx>{`
-                @keyframes marquee {
-                    0% { transform: translateX(0%); }
-                    100% { transform: translateX(-50%); }
-                }
-                .animate-marquee {
-                    animation: marquee 60s linear infinite;
-                }
-                .marquee-container::before,
-                .marquee-container::after {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    bottom: 0;
-                    width: 5rem;
-                    z-index: 10;
-                }
-                .marquee-container::before {
-                    left: 0;
-                    background: linear-gradient(to right, #1e2025, transparent);
-                }
-                .marquee-container::after {
-                    right: 0;
-                    background: linear-gradient(to left, #1e2025, transparent);
-                }
-            `}</style>
             <div className="container mx-auto">
                 <div className="text-center mb-16 px-6">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">Kata Mereka yang Sudah Terbantu</h2>

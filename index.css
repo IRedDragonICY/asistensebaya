@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Poppins', sans-serif;
+
+  --color-dark-bg: #1e2025;
+  --color-dark-bg-secondary: #24272c;
+  --color-orange-accent: #f97316;
+  --color-orange-accent-hover: #fb923c;
+
+  --shadow-neumorphic-out: 8px 8px 16px #1a1c20, -8px -8px 16px #22242a;
+  --shadow-neumorphic-in: inset 8px 8px 16px #1a1c20, inset -8px -8px 16px #22242a;
+  --shadow-neumorphic-out-sm: 4px 4px 8px #1a1c20, -4px -4px 8px #22242a;
+  --shadow-neumorphic-in-sm: inset 4px 4px 8px #1a1c20, inset -4px -4px 8px #22242a;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    font-family: var(--font-sans);
+    background-color: var(--color-dark-bg);
+  }
+
+  body {
+    @apply bg-dark-bg text-gray-300 font-sans antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-orange-accent);
+    color: rgb(17 24 39);
+  }
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+@keyframes blob-soft {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  33% {
+    transform: translate(40px, -60px) scale(1.2);
+  }
+
+  66% {
+    transform: translate(-30px, 30px) scale(0.8);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@layer utilities {
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+
+  .animate-blob-soft {
+    animation: blob-soft 8s infinite;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: -2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: -4s;
+  }
+
+  .animate-marquee {
+    animation: marquee 60s linear infinite;
+  }
+}
+
+@layer components {
+  .marquee-container::before,
+  .marquee-container::after {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    inline-size: 5rem;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .marquee-container::before {
+    inset-inline-start: 0;
+    background: linear-gradient(to right, var(--color-dark-bg), transparent);
+  }
+
+  .marquee-container::after {
+    inset-inline-end: 0;
+    background: linear-gradient(to left, var(--color-dark-bg), transparent);
+  }
+}
