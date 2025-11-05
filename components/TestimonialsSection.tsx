@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Star } from 'lucide-react';
+import { motion, useInView } from 'framer-motion';
 import type { Testimonial } from '../types';
 
 const testimonials: Testimonial[] = [
@@ -83,9 +84,23 @@ type TestimonialCardProps = {
 };
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => (
-    <div className="bg-dark-bg-secondary p-8 rounded-3xl shadow-neumorphic-out flex flex-col h-full w-80 md:w-96 flex-shrink-0">
+    <motion.div
+      className="bg-dark-bg-secondary p-8 rounded-3xl shadow-neumorphic-out flex flex-col h-full w-80 md:w-96 flex-shrink-0"
+      whileHover={{
+        scale: 1.03,
+        y: -5,
+        boxShadow: "inset 8px 8px 16px #1a1c20, inset -4px -4px 8px #22242a",
+        transition: { duration: 0.3 }
+      }}
+    >
         <div className="flex items-center mb-4">
-            <img src={testimonial.avatar} alt={testimonial.name} className="w-14 h-14 rounded-full mr-4 border-2 border-orange-accent" />
+            <motion.img
+              src={testimonial.avatar}
+              alt={testimonial.name}
+              className="w-14 h-14 rounded-full mr-4 border-2 border-orange-accent"
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              transition={{ duration: 0.3 }}
+            />
             <div>
                 <h4 className="font-bold text-white text-lg">{testimonial.name}</h4>
                 <p className="text-gray-400 text-sm">{testimonial.origin}</p>
@@ -93,21 +108,36 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => (
         </div>
         <p className="text-gray-300 flex-grow mb-4">"{testimonial.text}"</p>
         <Rating count={testimonial.rating} />
-    </div>
+    </motion.div>
 );
 
 
 const TestimonialsSection: React.FC = () => {
     // Gandakan testimoni untuk loop yang mulus
     const extendedTestimonials = [...testimonials, ...testimonials];
+    const titleRef = useRef(null);
+    const isTitleInView = useInView(titleRef, { once: true, amount: 0.5 });
 
     return (
         <section id="testimonials" className="py-20 bg-dark-bg">
             <div className="container mx-auto">
-                <div className="text-center mb-16 px-6">
+                <motion.div
+                  ref={titleRef}
+                  className="text-center mb-16 px-6"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isTitleInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">Kata Mereka yang Sudah Terbantu</h2>
-                    <p className="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">Kami tidak hanya mengerjakan, kami membangun kepercayaan.</p>
-                </div>
+                    <motion.p
+                      className="text-lg text-gray-400 mt-4 max-w-2xl mx-auto"
+                      initial={{ opacity: 0 }}
+                      animate={isTitleInView ? { opacity: 1 } : { opacity: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                        Kami tidak hanya mengerjakan, kami membangun kepercayaan.
+                    </motion.p>
+                </motion.div>
                 <div className="relative marquee-container w-full overflow-hidden">
                     <div className="flex gap-8 animate-marquee hover:[animation-play-state:paused]">
                         {extendedTestimonials.map((testimonial, index) => (
