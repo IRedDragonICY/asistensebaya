@@ -191,7 +191,8 @@ const CareerPage: React.FC<CareerPageProps> = ({ navigate }) => {
       name: "Rizky Pratama",
       role: "Tutor Programming",
       university: "Institut Teknologi Bandung",
-      image: "💻",
+      initials: "RP",
+      avatarColor: "from-blue-500 to-indigo-600",
       rating: 5,
       text: "Menjadi tutor di AsistenSebaya memberikan saya penghasilan tambahan yang lumayan sambil mengasah skill programming saya. Sistemnya fleksibel dan pembayarannya tepat waktu!"
     },
@@ -199,7 +200,8 @@ const CareerPage: React.FC<CareerPageProps> = ({ navigate }) => {
       name: "Siti Nurhaliza",
       role: "Tutor Statistik & SPSS",
       university: "Universitas Indonesia",
-      image: "📊",
+      initials: "SN",
+      avatarColor: "from-purple-500 to-pink-600",
       rating: 5,
       text: "Saya fresh graduate dan kesulitan cari kerja. AsistenSebaya memberi saya kesempatan untuk tetap produktif dan menghasilkan income. Bahkan sekarang ini jadi pekerjaan utama saya!"
     },
@@ -207,7 +209,8 @@ const CareerPage: React.FC<CareerPageProps> = ({ navigate }) => {
       name: "Budi Santoso",
       role: "Tutor Desain Grafis",
       university: "Telkom University",
-      image: "🎨",
+      initials: "BS",
+      avatarColor: "from-orange-500 to-red-600",
       rating: 5,
       text: "Platform yang profesional dengan sistem yang jelas. Saya bisa work from home sambil kuliah. Rate-nya kompetitif dan saya bisa mengembangkan portfolio juga."
     },
@@ -215,7 +218,8 @@ const CareerPage: React.FC<CareerPageProps> = ({ navigate }) => {
       name: "Amanda Putri",
       role: "Tutor Makalah & Esai",
       university: "Universitas Gadjah Mada",
-      image: "✍️",
+      initials: "AP",
+      avatarColor: "from-green-500 to-emerald-600",
       rating: 5,
       text: "Sebagai mahasiswa S2, pekerjaan ini sangat membantu finansial saya. Jadwalnya fleksibel jadi tidak mengganggu kuliah dan penelitian saya. Highly recommended!"
     }
@@ -483,8 +487,10 @@ const CareerPage: React.FC<CareerPageProps> = ({ navigate }) => {
                 className="bg-dark-bg rounded-2xl p-8 border border-gray-800"
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-orange-accent to-orange-500 rounded-full flex items-center justify-center text-3xl">
-                    {testimonial.image}
+                  <div className={`w-16 h-16 bg-gradient-to-br ${testimonial.avatarColor} rounded-full flex items-center justify-center shadow-lg`}>
+                    <span className="text-white font-bold text-xl">
+                      {testimonial.initials}
+                    </span>
                   </div>
                   <div>
                     <h4 className="font-bold text-white text-lg">
