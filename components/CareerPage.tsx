@@ -191,8 +191,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ navigate }) => {
       name: "Rizky Pratama",
       role: "Tutor Programming",
       university: "Institut Teknologi Bandung",
-      initials: "RP",
-      avatarColor: "from-blue-500 to-indigo-600",
+      avatar: "https://i.pravatar.cc/100?u=rizky",
       rating: 5,
       text: "Menjadi tutor di AsistenSebaya memberikan saya penghasilan tambahan yang lumayan sambil mengasah skill programming saya. Sistemnya fleksibel dan pembayarannya tepat waktu!"
     },
@@ -200,8 +199,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ navigate }) => {
       name: "Siti Nurhaliza",
       role: "Tutor Statistik & SPSS",
       university: "Universitas Indonesia",
-      initials: "SN",
-      avatarColor: "from-purple-500 to-pink-600",
+      avatar: "https://i.pravatar.cc/100?u=siti",
       rating: 5,
       text: "Saya fresh graduate dan kesulitan cari kerja. AsistenSebaya memberi saya kesempatan untuk tetap produktif dan menghasilkan income. Bahkan sekarang ini jadi pekerjaan utama saya!"
     },
@@ -209,8 +207,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ navigate }) => {
       name: "Budi Santoso",
       role: "Tutor Desain Grafis",
       university: "Telkom University",
-      initials: "BS",
-      avatarColor: "from-orange-500 to-red-600",
+      avatar: "https://i.pravatar.cc/100?u=buditutor",
       rating: 5,
       text: "Platform yang profesional dengan sistem yang jelas. Saya bisa work from home sambil kuliah. Rate-nya kompetitif dan saya bisa mengembangkan portfolio juga."
     },
@@ -218,8 +215,7 @@ const CareerPage: React.FC<CareerPageProps> = ({ navigate }) => {
       name: "Amanda Putri",
       role: "Tutor Makalah & Esai",
       university: "Universitas Gadjah Mada",
-      initials: "AP",
-      avatarColor: "from-green-500 to-emerald-600",
+      avatar: "https://i.pravatar.cc/100?u=amanda",
       rating: 5,
       text: "Sebagai mahasiswa S2, pekerjaan ini sangat membantu finansial saya. Jadwalnya fleksibel jadi tidak mengganggu kuliah dan penelitian saya. Highly recommended!"
     }
@@ -483,15 +479,17 @@ const CareerPage: React.FC<CareerPageProps> = ({ navigate }) => {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="bg-dark-bg rounded-2xl p-8 border border-gray-800"
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="bg-dark-bg rounded-2xl p-8 border border-gray-800 hover:border-orange-accent/50 transition-all"
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${testimonial.avatarColor} rounded-full flex items-center justify-center shadow-lg`}>
-                    <span className="text-white font-bold text-xl">
-                      {testimonial.initials}
-                    </span>
-                  </div>
+                  <motion.img
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    className="w-16 h-16 rounded-full border-2 border-orange-accent shadow-lg object-cover"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                  />
                   <div>
                     <h4 className="font-bold text-white text-lg">
                       {testimonial.name}
