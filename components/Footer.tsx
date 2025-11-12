@@ -2,8 +2,13 @@
 import React, { useRef } from 'react';
 import { BrainCircuit, Twitter, Instagram, Linkedin } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
+import type { Page } from '../App';
 
-const Footer: React.FC = () => {
+type FooterProps = {
+  navigate: (page: Page) => void;
+};
+
+const Footer: React.FC<FooterProps> = ({ navigate }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
@@ -94,40 +99,40 @@ const Footer: React.FC = () => {
             <h4 className="font-bold text-white mb-4">Layanan</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <motion.a
-                  href="#"
-                  className="text-gray-400 hover:text-orange-accent transition-colors"
+                <motion.button
+                  onClick={() => navigate('services')}
+                  className="text-gray-400 hover:text-orange-accent transition-colors text-left"
                   whileHover={{ x: 5 }}
                 >
                   Makalah & Esai
-                </motion.a>
+                </motion.button>
               </li>
               <li>
-                <motion.a
-                  href="#"
-                  className="text-gray-400 hover:text-orange-accent transition-colors"
+                <motion.button
+                  onClick={() => navigate('services')}
+                  className="text-gray-400 hover:text-orange-accent transition-colors text-left"
                   whileHover={{ x: 5 }}
                 >
                   Presentasi (PPT)
-                </motion.a>
+                </motion.button>
               </li>
               <li>
-                <motion.a
-                  href="#"
-                  className="text-gray-400 hover:text-orange-accent transition-colors"
+                <motion.button
+                  onClick={() => navigate('services')}
+                  className="text-gray-400 hover:text-orange-accent transition-colors text-left"
                   whileHover={{ x: 5 }}
                 >
                   Tugas Koding
-                </motion.a>
+                </motion.button>
               </li>
               <li>
-                <motion.a
-                  href="#"
-                  className="text-gray-400 hover:text-orange-accent transition-colors"
+                <motion.button
+                  onClick={() => navigate('services')}
+                  className="text-gray-400 hover:text-orange-accent transition-colors text-left"
                   whileHover={{ x: 5 }}
                 >
                   Analisis Data
-                </motion.a>
+                </motion.button>
               </li>
             </ul>
           </motion.div>
@@ -135,31 +140,31 @@ const Footer: React.FC = () => {
             <h4 className="font-bold text-white mb-4">Perusahaan</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <motion.a
-                  href="#"
-                  className="text-gray-400 hover:text-orange-accent transition-colors"
+                <motion.button
+                  onClick={() => navigate('about')}
+                  className="text-gray-400 hover:text-orange-accent transition-colors text-left"
                   whileHover={{ x: 5 }}
                 >
                   Tentang Kami
-                </motion.a>
+                </motion.button>
               </li>
               <li>
-                <motion.a
-                  href="#affiliate"
-                  className="text-gray-400 hover:text-orange-accent transition-colors"
+                <motion.button
+                  onClick={() => navigate('career')}
+                  className="text-gray-400 hover:text-orange-accent transition-colors text-left"
                   whileHover={{ x: 5 }}
                 >
                   Karir (Jadi Tutor)
-                </motion.a>
+                </motion.button>
               </li>
               <li>
-                <motion.a
-                  href="#"
-                  className="text-gray-400 hover:text-orange-accent transition-colors"
+                <motion.button
+                  onClick={() => navigate('contact')}
+                  className="text-gray-400 hover:text-orange-accent transition-colors text-left"
                   whileHover={{ x: 5 }}
                 >
                   Kontak
-                </motion.a>
+                </motion.button>
               </li>
             </ul>
           </motion.div>
@@ -167,22 +172,22 @@ const Footer: React.FC = () => {
             <h4 className="font-bold text-white mb-4">Legal</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <motion.a
-                  href="#"
-                  className="text-gray-400 hover:text-orange-accent transition-colors"
+                <motion.button
+                  onClick={() => navigate('terms')}
+                  className="text-gray-400 hover:text-orange-accent transition-colors text-left"
                   whileHover={{ x: 5 }}
                 >
                   Syarat & Ketentuan
-                </motion.a>
+                </motion.button>
               </li>
               <li>
-                <motion.a
-                  href="#"
-                  className="text-gray-400 hover:text-orange-accent transition-colors"
+                <motion.button
+                  onClick={() => navigate('privacy')}
+                  className="text-gray-400 hover:text-orange-accent transition-colors text-left"
                   whileHover={{ x: 5 }}
                 >
                   Kebijakan Privasi
-                </motion.a>
+                </motion.button>
               </li>
             </ul>
           </motion.div>
