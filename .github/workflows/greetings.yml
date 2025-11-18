@@ -1,0 +1,35 @@
+name: Greetings
+
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: |
+            Thanks for opening your first issue in Asisten Sebaya!
+
+            A maintainer will review your issue soon. In the meantime:
+            - Make sure you've provided all the required information
+            - Check out our [Contributing Guidelines](https://github.com/IRedDragonICY/asistensebaya/blob/main/CONTRIBUTING.md)
+            - Join our [Discussions](https://github.com/IRedDragonICY/asistensebaya/discussions) for questions
+
+            We appreciate your contribution to making Asisten Sebaya better!
+          pr-message: |
+            Thanks for opening your first pull request in Asisten Sebaya!
+
+            A maintainer will review your contribution soon. Please ensure:
+            - [ ] Your code follows our style guidelines
+            - [ ] You've added tests for your changes
+            - [ ] All tests are passing
+            - [ ] You've updated the documentation
+
+            Check out our [Contributing Guidelines](https://github.com/IRedDragonICY/asistensebaya/blob/main/CONTRIBUTING.md) for more information.
+
+            We appreciate your contribution!
