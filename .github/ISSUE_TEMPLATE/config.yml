@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or Discussion
+    url: https://github.com/IRedDragonICY/asistensebaya/discussions
+    about: Ask questions and discuss ideas with the community
+  - name: Security Vulnerability
+    url: https://github.com/IRedDragonICY/asistensebaya/security/advisories/new
+    about: Report security vulnerabilities privately
+  - name: Documentation
+    url: https://github.com/IRedDragonICY/asistensebaya/blob/main/README.md
+    about: Check the documentation for common questions
