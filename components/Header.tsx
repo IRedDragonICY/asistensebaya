@@ -80,12 +80,48 @@ const Header: React.FC<HeaderProps> = ({ navigate }) => {
           </span>
         </motion.a>
         <nav className="hidden md:flex items-center gap-8">
-          <NavLink href="#features">Layanan</NavLink>
-          <NavLink href="#testimonials">Testimoni</NavLink>
-          <NavLink href="#affiliate">Jadi Tutor</NavLink>
-          <motion.a
-            href="#"
-            onClick={(e) => handleNavigate(e, 'login')}
+          <motion.button
+            onClick={() => navigate('services')}
+            className="text-gray-300 hover:text-orange-accent transition-all duration-300 text-sm md:text-base relative group"
+            whileHover={{ scale: 1.05 }}
+          >
+            Layanan
+            <motion.span
+              className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-accent group-hover:w-full transition-all duration-300"
+            />
+          </motion.button>
+          <motion.button
+            onClick={() => navigate('about')}
+            className="text-gray-300 hover:text-orange-accent transition-all duration-300 text-sm md:text-base relative group"
+            whileHover={{ scale: 1.05 }}
+          >
+            Tentang Kami
+            <motion.span
+              className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-accent group-hover:w-full transition-all duration-300"
+            />
+          </motion.button>
+          <motion.button
+            onClick={() => navigate('career')}
+            className="text-gray-300 hover:text-orange-accent transition-all duration-300 text-sm md:text-base relative group"
+            whileHover={{ scale: 1.05 }}
+          >
+            Jadi Tutor
+            <motion.span
+              className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-accent group-hover:w-full transition-all duration-300"
+            />
+          </motion.button>
+          <motion.button
+            onClick={() => navigate('contact')}
+            className="text-gray-300 hover:text-orange-accent transition-all duration-300 text-sm md:text-base relative group"
+            whileHover={{ scale: 1.05 }}
+          >
+            Kontak
+            <motion.span
+              className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-accent group-hover:w-full transition-all duration-300"
+            />
+          </motion.button>
+          <motion.button
+            onClick={() => navigate('login')}
             className="bg-orange-accent text-white font-semibold py-2 px-5 rounded-full shadow-neumorphic-out-sm"
             whileHover={{
               scale: 1.05,
@@ -95,7 +131,7 @@ const Header: React.FC<HeaderProps> = ({ navigate }) => {
             transition={{ duration: 0.2 }}
           >
             Mulai Kerjakan
-          </motion.a>
+          </motion.button>
         </nav>
         <div className="md:hidden">
           <motion.button
@@ -139,20 +175,67 @@ const Header: React.FC<HeaderProps> = ({ navigate }) => {
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <nav className="flex flex-col items-center gap-4 pt-4">
-              <NavLink href="#features" mobile delay={0.1}>Layanan</NavLink>
-              <NavLink href="#testimonials" mobile delay={0.15}>Testimoni</NavLink>
-              <NavLink href="#affiliate" mobile delay={0.2}>Jadi Tutor</NavLink>
-              <motion.a
-                href="#"
-                onClick={(e) => handleNavigate(e, 'login')}
+              <motion.button
+                onClick={() => {
+                  setIsOpen(false);
+                  navigate('services');
+                }}
+                className="text-gray-300 hover:text-orange-accent transition-all duration-300"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+              >
+                Layanan
+              </motion.button>
+              <motion.button
+                onClick={() => {
+                  setIsOpen(false);
+                  navigate('about');
+                }}
+                className="text-gray-300 hover:text-orange-accent transition-all duration-300"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: 0.15 }}
+              >
+                Tentang Kami
+              </motion.button>
+              <motion.button
+                onClick={() => {
+                  setIsOpen(false);
+                  navigate('career');
+                }}
+                className="text-gray-300 hover:text-orange-accent transition-all duration-300"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
+              >
+                Jadi Tutor
+              </motion.button>
+              <motion.button
+                onClick={() => {
+                  setIsOpen(false);
+                  navigate('contact');
+                }}
+                className="text-gray-300 hover:text-orange-accent transition-all duration-300"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: 0.25 }}
+              >
+                Kontak
+              </motion.button>
+              <motion.button
+                onClick={() => {
+                  setIsOpen(false);
+                  navigate('login');
+                }}
                 className="bg-orange-accent text-white font-semibold py-2 px-5 rounded-full shadow-neumorphic-out-sm mt-2"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: 0.25 }}
+                transition={{ duration: 0.3, delay: 0.3 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Mulai Kerjakan
-              </motion.a>
+              </motion.button>
             </nav>
           </motion.div>
         )}
